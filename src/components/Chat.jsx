@@ -13,7 +13,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import socket from "../socket";
+import socket from "../Socket.js";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
