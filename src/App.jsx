@@ -3,9 +3,11 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Chat from "./components/Chat";
 import ProtectedRoute from "./ProtectedRoute";
-
+import { GoogleOAuthProvider } from "@react-oauth/google";
 function App() {
   return (
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+
     <Router>
       <Routes>
         <Route path="/" element={<Register />} />
@@ -17,6 +19,7 @@ function App() {
         
       </Routes>
     </Router>
+    </GoogleOAuthProvider>
   );
 }
 

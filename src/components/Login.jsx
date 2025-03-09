@@ -7,16 +7,19 @@ import { jwtDecode } from "jwt-decode";
 import { Box, Button, TextField, Typography, Paper, CircularProgress, Backdrop } from "@mui/material";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import GoogleLoginButton from "./GoogleLoginButton";
 
 const Login = () => {
     const navigate = useNavigate();
+  
+   
 
     return (
         <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh", backgroundColor: "#fff" ,minWidth:"100vw"}}
+            style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh", backgroundColor: "#fff", minWidth: "100vw" }}
         >
             <ToastContainer position="top-right" autoClose={3000} />
             <Paper elevation={6} sx={{ p: 4, borderRadius: 3, width: 400, bgcolor: "#fff", color: "black", textAlign: "center" }}>
@@ -32,13 +35,13 @@ const Login = () => {
                     })}
                     onSubmit={async (values, { setSubmitting }) => {
                         try {
-                            const { data } = await axios.post("http://localhost:3000/api/auth/login", values);
+                            const { data } = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/login`, values);
                             const decodedToken = jwtDecode(data.token);
                             localStorage.setItem("token", data.token);
                             localStorage.setItem("userId", decodedToken.id);
                             localStorage.setItem("name", decodedToken.name);
                             toast.success("Login Successful!");
-                            setTimeout(() => navigate("/chat"), 2000);
+                            setTimeout(() => navigate("/chat"), 1000);
                         } catch (error) {
                             toast.error("Login Failed! Invalid credentials.");
                         }
@@ -95,9 +98,14 @@ const Login = () => {
                                 </Button>
                             </motion.div>
 
+                            {/* Google Login Button */}
+                            <Box sx={{ mt: 2 }}>
+                                <GoogleLoginButton/>
+                            </Box>
+
                             {/* Register Button */}
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} style={{ marginTop: "10px" }}>
-                                <Button fullWidth variant="outlined" color="secondary" sx={{ mt: 2, fontSize: 14, fontWeight: "bold" }} onClick={() => navigate("/")}>
+                                <Button fullWidth variant="outlined" color="secondary" sx={{ mt: 2, fontSize: 14, fontWeight: "bold" }} onClick={() => navigate("/register")}>
                                     Create an Account
                                 </Button>
                             </motion.div>

@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
     const navigate = useNavigate();
-
+    const apiurl = import.meta.env.BACKEND_URL
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -40,7 +40,7 @@ const Register = () => {
                     onSubmit={async (values, { setSubmitting }) => {
                         try {
                             setSubmitting(true);
-                            const response = await axios.post("http://localhost:3000/api/auth/register", values);
+                            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/register`, values);
                             if (response.data) {
                                 toast.success("Registration Successful!");
                                 setTimeout(() => navigate("/login"), 2000);
