@@ -1,12 +1,60 @@
-# React + Vite
+🔥 MERN Chat Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A real-time one-on-one chat application built using the MERN stack with Socket.IO for real-time messaging. The UI is designed to resemble WhatsApp Web using Material-UI and Framer Motion for smooth animations.
 
-Currently, two official plugins are available:
+🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+User Authentication (JWT & Google OAuth Login)
 
-## Expanding the ESLint configuration
+Real-time Messaging (Socket.IO)
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+User Search to start a chat
+
+Message timestamps with different colors for sender & receiver
+
+Mobile Responsive UI
+
+Chat selection panel collapses on small screens
+
+Back button in chat header for mobile navigation
+
+Material-UI for Styling & Framer Motion for Animations
+
+Logout Button for user session management
+
+🛠️ Technologies Used
+
+Frontend: React, Vite, Material-UI, Framer Motion, Formik, Axios
+
+Backend: Node.js, Express.js, MongoDB, Mongoose, Socket.IO, JWT Authentication
+
+📂 Project Structure
+
+📦 chat-application   
+ ┣ 📂 backend              
+ ┃ ┣ 📂 configs        
+ ┃ ┣ 📂 controller        
+ ┃ ┣ 📂 models   
+ ┃ ┣ 📂 routes   
+ ┃ ┣ 📜 server.js   
+ ┣ 📂 frontend    
+ ┃ ┣ 📂 src    
+ ┃ ┃ ┣ 📂 components    
+ ┃ ┃ ┣ 📜 App.js    
+ ┃ ┃ ┣ 📜 Chat.js    
+ ┃ ┃ ┣ 📜 Login.js    
+ ┃ ┃ ┣ 📜 Register.js    
+ ┃ ┃ ┣ 📜 socket.js    
+ ┣ 📜 README.md    
+
+📌 Future Enhancements
+
+Typing Indicators
+
+Read Receipts
+
+Push Notifications
+
+Group Chat Feature
+
+🚀 Happy Coding! 😊
